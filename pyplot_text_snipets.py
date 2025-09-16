@@ -34,7 +34,8 @@ def pop_subfigure_label (axis_object, label,
                          verticalalignment = "top",
                          xpos = None, ypos = None,
                          fontsize = 15,
-                         fontcolor = "black"):
+                         fontcolor = "black",
+                         use_background = False):
     
     if relative_x_distance:
         if xpos is None and ypos is None:
@@ -44,12 +45,18 @@ def pop_subfigure_label (axis_object, label,
     elif xpos is None and ypos is None:
         raise ValueError("Input error: please specify coordinates.")
     
+    if use_background:
+        background_color = use_background
+    else:
+        background_color = None
+    
     axis_object.text(xpos, ypos, label,
                      fontweight = "bold", fontsize = fontsize,
                      horizontalalignment = horizontalalignment,
                      verticalalignment = verticalalignment,
                      transform = axis_object.transAxes,
-                     color = fontcolor)
+                     color = fontcolor,
+                     backgroundcolor = background_color)
     
     return axis_object
 
@@ -270,7 +277,8 @@ def chisquare_contours (axis_object, xdata, ydata, sdata,
     return axis_object
 
 def make_figure_from_subfigures (array_of_fnames, figsize = (6.4, 6.4),
-                                 fontcolor = "black", fontsize = 15):
+                                 fontcolor = "black", fontsize = 15,
+                                 use_background = False):
     
     nrows, ncols = array_of_fnames.shape
     size = array_of_fnames.size
@@ -292,7 +300,8 @@ def make_figure_from_subfigures (array_of_fnames, figsize = (6.4, 6.4),
             ax.imshow(image)
             
             ax = pop_subfigure_label(ax, label, relative_x_distance = 0.05,
-                                     fontcolor = fontcolor, fontsize = fontsize)
+                                     fontcolor = fontcolor, fontsize = fontsize,
+                                     use_background = use_background)
             
             ax.set_xticks([])
             ax.set_yticks([])
