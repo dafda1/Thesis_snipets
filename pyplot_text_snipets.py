@@ -48,7 +48,7 @@ def pop_subfigure_label (axis_object, label,
     if use_background:
         background_color = use_background
     else:
-        background_color = None
+        background_color = "none"
     
     axis_object.text(xpos, ypos, label,
                      fontweight = "bold", fontsize = fontsize,
