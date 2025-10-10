@@ -109,7 +109,8 @@ def my_box (axis_object, xpositions, ypositions,
 
 def my_zoomy_box (axis_object, zoomed_region,
                   inset_region, paired_vertices,
-                  linewidth = 0.75, fmt = "k--"):
+                  linewidth = 0.75, fmt = "k--",
+                  line_transparency = 1.0):
     """
     Tool for creating inset axis with zoomed version of specific
     part of plot. Returns the original axis and the inset axis.
@@ -170,7 +171,8 @@ def my_zoomy_box (axis_object, zoomed_region,
         xI = inset_region[0::2][iv]
         yI = inset_region[1::2][jv]
     
-        axis_object.plot((xB, xI), (yB, yI), fmt, linewidth = linewidth)
+        axis_object.plot((xB, xI), (yB, yI), fmt, linewidth = linewidth,
+                         alpha = line_transparency)
     
     return axis_object, inset_axis_object
 
