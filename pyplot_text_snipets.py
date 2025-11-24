@@ -18,6 +18,8 @@ thesis_main_dir = join(r"C:\\", "Users", "dafda1",
 
 image_folder_dict = {}
 chapters = [f"chapter_{i}" for i in range(1, 6)] + ["introduction", "conclusion"]
+chapters.append("chapter_2p5") #add new chapter 3 - separate chem and phys properties
+
 for chapter in chapters:
     image_folder_dict[chapter] = join(thesis_main_dir, chapter, "images")
 
