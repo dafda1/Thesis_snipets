@@ -17,7 +17,9 @@ thesis_main_dir = join(r"C:\\", "Users", "dafda1",
                        "Dissertation", "chapters")
 
 image_folder_dict = {}
-chapters = [f"chapter_{i}" for i in range(1, 6)] + ["introduction", "conclusion"]
+chapters = [f"chapter_{i}" for i in range(1, 6)] +\
+           ["introduction", "conclusion", "appendix_maths"]
+           
 chapters.append("chapter_2p5") #add new chapter 3 - separate chem and phys properties
 
 for chapter in chapters:
